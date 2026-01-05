@@ -1,0 +1,99 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage{url}
+
+\title{Design and Implementation of a Real-Time Air Quality Index Tracking System}
+
+\author{
+\IEEEauthorblockN{Aaryan Mudvikar}
+\IEEEauthorblockA{
+Department of Computer Science and Engineering\\
+India\\
+Email: aaryanmudvikar@gmail.com
+}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Air pollution has become a serious environmental and public health concern in urban and industrial regions. Continuous monitoring of air quality is essential to assess pollution levels and to provide timely alerts to citizens and authorities. This paper presents the design and implementation of a real-time Air Quality Index (AQI) tracking system that collects air quality data, processes it, and displays the AQI values in real time. The system integrates sensors, data processing techniques, and a web-based visualization platform to provide accurate and user-friendly air quality information.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Air Quality Index, Real-Time Monitoring, Environmental Monitoring, IoT, Data Visualization
+\end{IEEEkeywords}
+
+\section{Introduction}
+Air pollution is one of the leading causes of health problems such as respiratory diseases, cardiovascular disorders, and reduced life expectancy. Traditional air quality monitoring stations are expensive and limited in number, making it difficult to obtain localized air quality data. 
+
+With advancements in Internet of Things (IoT) technologies and data analytics, it is now possible to build low-cost and real-time air quality monitoring systems. This paper proposes a real-time AQI tracking system that continuously monitors air quality parameters and presents the information in an easily understandable format.
+
+\section{Related Work}
+Several studies have focused on air quality monitoring using sensor networks and IoT platforms. Existing systems mainly concentrate on data collection but lack real-time visualization and user interaction. Some approaches utilize cloud-based platforms for data storage and analysis, while others focus on mobile-based applications for AQI display. However, there is still a need for a scalable, real-time, and user-friendly AQI monitoring system.
+
+\section{System Architecture}
+The proposed system consists of the following components:
+\begin{itemize}
+    \item Air quality sensors for detecting pollutants such as PM2.5, PM10, CO, and NO$_2$
+    \item A microcontroller or data acquisition unit
+    \item Backend server for data processing and storage
+    \item Web-based dashboard for real-time visualization
+\end{itemize}
+
+Figure~\ref{fig:architecture} shows the overall architecture of the system.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.45\textwidth]{architecture.png}
+\caption{System Architecture of Real-Time AQI Tracking System}
+\label{fig:architecture}
+\end{figure}
+
+\section{Methodology}
+The system collects sensor data at regular intervals and transmits it to the backend server using wireless communication. The raw sensor values are converted into AQI values using standard AQI calculation formulas. The processed data is stored in a database and updated in real time on the web dashboard.
+
+\subsection{AQI Calculation}
+AQI is calculated using pollutant concentration values and standard breakpoint tables provided by environmental authorities. The general AQI formula is given by:
+
+\begin{equation}
+AQI = \frac{I_{high} - I_{low}}{C_{high} - C_{low}} (C - C_{low}) + I_{low}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $C$ is the pollutant concentration
+    \item $C_{high}$ and $C_{low}$ are breakpoint concentrations
+    \item $I_{high}$ and $I_{low}$ are AQI index breakpoints
+\end{itemize}
+
+\section{Implementation}
+The proposed system is implemented using low-cost air quality sensors connected to a microcontroller. The backend is developed using a web framework and a database to store historical AQI data. A responsive web dashboard displays real-time AQI values, graphs, and pollution trends.
+
+\section{Results and Discussion}
+The system successfully provides real-time AQI updates with minimal latency. The dashboard allows users to view current air quality levels and historical trends. The results demonstrate that the system is reliable, scalable, and suitable for deployment in urban environments.
+
+\section{Conclusion}
+This paper presented a real-time Air Quality Index tracking system that integrates sensor data, AQI calculation, and web-based visualization. The proposed solution offers an affordable and scalable alternative to traditional air quality monitoring stations. Future work includes mobile application development and integration of predictive analytics using machine learning.
+
+\section*{Acknowledgment}
+The author would like to thank the faculty members and mentors for their guidance and support throughout this project.
+
+\begin{thebibliography}{1}
+
+\bibitem{ref1}
+World Health Organization, ``Ambient Air Pollution: A Global Assessment of Exposure and Burden of Disease,'' WHO Press, 2016.
+
+\bibitem{ref2}
+U.S. Environmental Protection Agency, ``Air Quality Index (AQI) Basics,'' Available: \url{https://www.airnow.gov}
+
+\bibitem{ref3}
+S. Kumar, A. Singh, and R. Sharma, ``IoT-Based Air Quality Monitoring System,'' \emph{International Journal of Engineering Research}, vol. 10, no. 4, pp. 45--50, 2021.
+
+\end{thebibliography}
+
+\end{document}
